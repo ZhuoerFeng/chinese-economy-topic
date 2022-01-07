@@ -15,7 +15,7 @@
 ## 运行方式
 
 在`did_input.csv`同级的目录下，使用终端运行
-``` python3 pro.py```
+``` python3 run.py```
 观察输出logging的打印
 
-在`pro.py`的`main()`第343行分别修改为`df = pd.read_csv('east.csv')`，`df = pd.read_csv('middle.csv')`，`df = pd.read_csv('west.csv')`即可运行东部、中部、西部城市数据的模型拟合情况
+在`run.py`的`main()`第343行分别修改为`df = pd.read_csv('east.csv')`，`df = pd.read_csv('middle.csv')`，`df = pd.read_csv('west.csv')`即可运行东部、中部、西部城市数据的模型拟合情况
