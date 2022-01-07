@@ -1,0 +1,11 @@
+﻿,lnlctfp,forest,lnlctfp
+forest,N/A,N/A,0.0032
+,,,"[-0.076, -0.165]"
+pilot*post,0.0667,0.0953,0.0613
+P值,,0.001,0.038
+控制变量,YES,YES,YES
+省份固定效应,YES,YES,YES
+时间固定效应,YES,YES,YES
+省份时间趋势,NO,NO,NO
+observations,243,243,243
+R-squared,0.95,0.986,0.95

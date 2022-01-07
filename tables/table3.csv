@@ -1,0 +1,11 @@
+﻿,东部地区,中部地区,西部地区
+pilot*post,0.0251,-0.0269,-3.01E-17
+控制变量,YES,YES,YES
+省份固定效应,YES,YES,YES
+时间固定效应,YES,YES,YES
+省份时间趋势,NO,NO,NO
+observations,90,72,81
+R-squared,0.961,0.958,0.907
+,,,
+,,,
+,,,

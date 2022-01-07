@@ -1,0 +1,10 @@
+﻿,东部地区,,中部地区,,西部地区,,
+被解释变量,lnlctfp,lnlci,lnlctfp,lnlci,lnlctfp,lnlci,lnlctfp
+pilot*post,0.0251,0.0051,-0.0269,-0.2287,-3.02E-17,-9.34E-17,1.39E-17
+lnlci,/,/,/,/,/,/,-0.058
+控制变量,YES,YES,YES,YES,YES,YES,YES
+省份固定效应,YES,YES,YES,YES,YES,YES,YES
+时间固定效应,YES,YES,YES,YES,YES,YES,YES
+省份时间趋势,NO,NO,NO,NO,NO,NO,NO
+observations,90,90,72,72,81,81,81
+R-squared,0.961,0.991,0.958,0.978,0.907,0.979,0.91

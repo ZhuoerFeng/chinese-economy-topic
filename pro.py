@@ -87,17 +87,63 @@ def merge():
             data[i].append(1)
         else:
             data[i].append(0)
-            
+        prov = data[i][-1]
         year = data[i][1]
-        if year < 2013 and year >= 2008:
+        # if year < 2013 and year >= 2008:
+        #     data[i].append(0)
+        # elif year >= 2013 and year <= 2016:
+        #     data[i].append(1)
+        # else:
+        #     print('illegal data')
+            
+        if year < 2009:
             data[i].append(0)
-        elif year >= 2013 and year <= 2016:
-            data[i].append(1)
         else:
-            print('illegal data')
+            data[i].append(1)
+        data[i].append(data[i][-1] * prov)  
         
-        data[i].append(data[i][-1] * data[i][-2])  
-    
+        if year < 2010:
+            data[i].append(0)
+        else:
+            data[i].append(1)
+        data[i].append(data[i][-1] * prov)  
+            
+        if year < 2011:
+            data[i].append(0)
+        else:
+            data[i].append(1)
+        data[i].append(data[i][-1] * prov)  
+            
+        if year < 2012:
+            data[i].append(0)
+        else:
+            data[i].append(1)
+        data[i].append(data[i][-1] * prov)  
+            
+        if year < 2013:
+            data[i].append(0)
+        else:
+            data[i].append(1)
+        data[i].append(data[i][-1] * prov)  
+            
+        if year < 2014:
+            data[i].append(0)
+        else:
+            data[i].append(1)
+        data[i].append(data[i][-1] * prov)  
+            
+        if year < 2015:
+            data[i].append(0)
+        else:
+            data[i].append(1)
+        data[i].append(data[i][-1] * prov)  
+            
+        if year < 2016:
+            data[i].append(0)
+        else:
+            data[i].append(1)
+        data[i].append(data[i][-1] * prov)  
+
     # lnlctfp
 
     worksheet = xlrd.open_workbook('lnlctfp.xlsx')
@@ -131,6 +177,20 @@ def merge():
     worksheet = xlrd.open_workbook('eps.xlsx')
     sheet = worksheet.sheet_by_name('Sheet1')
     cnt = 0
+    for row in range(1, 28):
+        for col in range(2, 11):
+            c = sheet.cell(row, col)
+            data[cnt].append(c.value)
+            cnt += 1
+        if cnt == 20*9:
+            cnt = 22*9
+        if cnt == 27*9:
+            cnt = 28*9
+        
+    # ind_num1
+    worksheet = xlrd.open_workbook('industrial_num.xls')
+    sheet = worksheet.sheet_by_name('Sheet1')
+    cnt = 0
     print(len(data))
     for row in range(1, 28):
         for col in range(2, 11):
@@ -141,11 +201,104 @@ def merge():
             cnt = 22*9
         if cnt == 27*9:
             cnt = 28*9
-        print(cnt)
+    
+    # ind_num2
+    worksheet = xlrd.open_workbook('industrial_num.xls')
+    sheet = worksheet.sheet_by_name('Sheet2')
+    cnt = 0
+    print(len(data))
+    for row in range(1, 28):
+        for col in range(2, 11):
+            c = sheet.cell(row, col)
+            data[cnt].append(np.log(c.value))
+            cnt += 1
+        if cnt == 20*9:
+            cnt = 22*9
+        if cnt == 27*9:
+            cnt = 28*9
+            
+    # ind_num3
+    worksheet = xlrd.open_workbook('industrial_num.xls')
+    sheet = worksheet.sheet_by_name('Sheet3')
+    cnt = 0
+    print(len(data))
+    for row in range(1, 28):
+        for col in range(2, 11):
+            c = sheet.cell(row, col)
+            data[cnt].append(np.log(c.value))
+            cnt += 1
+        if cnt == 20*9:
+            cnt = 22*9
+        if cnt == 27*9:
+            cnt = 28*9
+            
+    # ind_num4
+    worksheet = xlrd.open_workbook('industrial_num.xls')
+    sheet = worksheet.sheet_by_name('Sheet4')
+    cnt = 0
+    print(len(data))
+    for row in range(1, 28):
+        for col in range(2, 11):
+            c = sheet.cell(row, col)
+            data[cnt].append(np.log(c.value))
+            cnt += 1
+        if cnt == 20*9:
+            cnt = 22*9
+        if cnt == 27*9:
+            cnt = 28*9
+    
+    # forest1
+    worksheet = xlrd.open_workbook('forest.xls')
+    sheet = worksheet.sheet_by_name('Sheet1')
+    cnt = 0
+    print(len(data))
+    for row in range(1, 28):
+        for col in range(2, 11):
+            c = sheet.cell(row, col)
+            data[cnt].append((c.value))
+            cnt += 1
+        if cnt == 20*9:
+            cnt = 22*9
+        if cnt == 27*9:
+            cnt = 28*9
+
+    # forest2
+    worksheet = xlrd.open_workbook('forest.xls')
+    sheet = worksheet.sheet_by_name('Sheet2')
+    cnt = 0
+    print(len(data))
+    for row in range(1, 28):
+        for col in range(2, 11):
+            c = sheet.cell(row, col)
+            data[cnt].append((c.value))
+            cnt += 1
+        if cnt == 20*9:
+            cnt = 22*9
+        if cnt == 27*9:
+            cnt = 28*9
+            
+    # forest3
+    worksheet = xlrd.open_workbook('forest.xls')
+    sheet = worksheet.sheet_by_name('Sheet3')
+    cnt = 0
+    print(len(data))
+    for row in range(1, 28):
+        for col in range(2, 11):
+            c = sheet.cell(row, col)
+            data[cnt].append((c.value))
+            cnt += 1
+        if cnt == 20*9:
+            cnt = 22*9
+        if cnt == 27*9:
+            cnt = 28*9
     
     outfile = open('did_data.csv', 'w')
     writer = csv.writer(outfile)
-    writer.writerow(['prov', 'time', 'gdp', 'pergdp', 'ei', 'fdi', 'il', 'lnpergdp', 'ui', 'pilot', 'post', 'cross', 'lnlctfp', 'lnlci', 'eps'])
+    writer.writerow(['prov', 'time', 'gdp', 'pergdp', 'ei', 'fdi', 'il', 'lnpergdp', 'ui', 
+                     'pilot', 'post09', 'cross09', 'post10', 'cross10', 'post11', 'cross11', 'post12', 'cross12', 'post13', 'cross13', 
+                     'post14', 'cross14', 'post15', 'cross15', 'post16', 'cross16',
+                     'lnlctfp', 'lnlci', 'eps', 'ind_num1', 'ind_num2', 'ind_num3', 'ind_num4', 'forest1', 'forest2', 'forest3'])
+    
     writer.writerows(data)
     
 EAST = ['北京', '天津', '河北省', '辽宁省', '上海', '江苏省', '浙江省', '福建省', '山东省', '广东省', '海南']
@@ -210,7 +363,7 @@ def main():
     df = df.join(id)
     print(df)
     
-    est = smf.ols(formula='lnlctfp ~ cross + eps + ei + fdi + il + lnpergdp + ui + C(id_prov, Treatment) + C(time, Treatment)', data=df).fit()
+    est = smf.ols(formula='lnlctfp ~ forest1 + cross13 + ei + fdi + il + lnpergdp + ui + C(id_prov, Treatment) + C(time, Treatment)', data=df).fit()
     
     print(est.summary())
     print(est.params)
